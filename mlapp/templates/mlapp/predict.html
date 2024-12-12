@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Prediction</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter details for prediction</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="age_week">Age (weeks):</label><br>
+            <input type="text" name="age_week"><br><br>
+
+            <label for="feed">Feed:</label><br>
+            <input type="text" name="feed"><br><br>
+
+            <label for="water">Water:</label><br>
+            <input type="text" name="water"><br><br>
+
+            <label for="bodyweight">Body Weight:</label><br>
+            <input type="text" name="bodyweight"><br><br>
+
+            <label for="lighting">Lighting:</label><br>
+            <input type="text" name="lighting"><br><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
